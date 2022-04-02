@@ -48,7 +48,7 @@ if st.button('Predict'):
     # 1. preprocess
    # transformed_sms = transform_text(input_sms)
     # 2. vectorize
-    vector_input = tfidf.transform([transformed_sms])
+   # vector_input = tfidf.transform([transformed_sms])
     # 3. predict
     # no_characters = len(input_sms)
     # no_words =1# len(nltk.word_tokenize(input_sms))
