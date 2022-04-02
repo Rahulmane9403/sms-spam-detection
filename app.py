@@ -1,4 +1,3 @@
-from tkinter import Button
 from unittest import result
 import streamlit as st
 import pickle
