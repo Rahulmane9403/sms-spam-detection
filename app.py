@@ -64,7 +64,25 @@ if st.button('Predict'):
     dict_samp = tokenizer(input_sms)
     outputs = model(torch.unsqueeze(torch.tensor(dict_samp['input_ids']), dim = 0 ), torch.unsqueeze(torch.tensor(dict_samp['attention_mask']),0))
     result = 1 if outputs.logits.argmax()==1   else 0
-
+    extra_val = ['txt','tri','free','won','contact','call','lottery','Lottery','landin','valid','12hr','Win','charge','landline',
+    'go','poli','clud','text','stop','pic','find','u','msg','find','next','po','box','day','150p','draw',
+    'want','await','collect','cost','ur','chat','tone','orange','day','top','want','service','contact','sexi','please','call',
+    'land','select','receive','back','valid','validation','validate','top','cost','privat', 'account','privat account',
+    'Free','Text','2nd','attempt','find','yr','chance','tone','customer','prize','claim','prize claim','customer service',
+    'customer service ','account','Account statement','Statement','urgent','send stop','week','sm','hi','credit','Credit','150ppm',
+    'phone Phone','offer','Offer','ringtone','Ringtone','xma','reply','code','mobile','Mobile','C','chance','Chance','promise','coupons',
+    'offer you a low or no interest credit card','promise to help you pay off your student loans',
+    'about your account or a transaction','say they noticed some suspicious activity on your account',
+    'claim there a problem with your payment information',
+    'send you a fake package delivery notification',"You're Won!","You Have a Refund Coming",
+    'Verify Your Bank Account','Verify Your Apple iCloud ID',
+    'A Family Member Needs Help','gift cards', 'discount codes or prizes for responding with your personal information?',
+    'Your parcel could not be delivered','spam','Spam','This is sms is spam','congratulations','Congrats','Bonus',
+    'Prize Pool','win now','Entry Fess']
+    abc = input_sms.split(" ")
+    if any(x in abc for x in extra_val):
+       result = 1
+          
 
     # 4. Display
     if result == 1:
